@@ -1,0 +1,55 @@
+<script type="text/ng-template" id="/main.html">
+    <h1>{{ currentUser() }}, This is your list of ToDos and Items.</h1>
+	
+		<div ng-show="isLoggedIn()">
+			
+		 <uib-accordion >
+			<uib-accordion-group ng-repeat="todo in todos" ng-click="getItems(todo._id)" is-open="status.open">
+				
+				 <uib-accordion-heading>
+					 <div>{{todo.todoName}}
+						 <a ng-hide="status.open" ng-click="textBtnForm.$show()" class="pull-right glyphicon glyphicon-pencil"></a>
+						 <a ng-show="status.open" ng-click="textBtnForm.$show();$event.stopPropagation()" class="pull-right glyphicon glyphicon-pencil"></a>
+					 </div>
+				 </uib-accordion-heading>
+					<span ng-hide="true" editable-text="todo.todoName" onaftersave="editTodoName($data, todo)" e-form="textBtnForm">{{ todo.todoName || 'empty' }}</span>
+				
+			<ul class="list-style">
+			  <li class="item-style panel" ng-repeat="item in items">
+			  
+				  
+			  <span editable-text="item.itemName" e-ng-click="$event.stopPropagation()" onaftersave="editItemName($data, item)" e-form="itemBtnForm">{{ item.itemName || 'empty' }}</span>
+				  
+			  <a ng-click="itemBtnForm.$show();$event.stopPropagation()" class="glyphicon glyphicon-pencil"></a>
+
+			  <a type="btn" class="glyphicon glyphicon-trash trash-icon pull-right" ng-click="deleteItem(item._id)"></a></li>
+                
+              <li class="input-group addInput">
+				
+				    <!-- BIND THIS VALUE TO itemData.ItemName IN ANGULAR -->
+				<input type="text" class="form-control input-lg" placeholder="Add item to this Todo" ng-model="itemData.itemName" aria-describedby="basic-addon2">
+					
+				    <!-- createItem() will create a new item -->
+				<span type="submit" class="input-group-addon addButton"  ng-click="addItem(todo._id)">Add</span>
+             </li>
+            </ul>
+				
+			<button type="button" class="btn btn-danger" ng-click="deleteTodo(todo)">Delete</button>
+				
+			</uib-accordion-group>
+		 </uib-accordion>
+		</div>
+
+		<!-- FORM TO CREATE TODOS -->
+		<div class="row col-xs-12 addGroup">
+
+            <div class="input-group addInput">
+				
+				<input type="text" class="form-control input-lg" placeholder="Add something to do" ng-model="todoName" aria-describedby="basic-addon2">
+					
+				    <!-- createToDo() WILL CREATE NEW TODOS -->
+				<span type="submit" class="input-group-addon addButton" id="basic-addon2" ng-click="addTodo()">Add</span>
+            </div> 
+		</div>
+     </div>
+</script>
