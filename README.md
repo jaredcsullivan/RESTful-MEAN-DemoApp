@@ -3,9 +3,11 @@ A CRUD app that demonstrates RESTful API built on top of a MEAN software stack
 
 This is a MongoDB-Express.js-Angular.js, Node.js ToDo App with sub-items.
 
+
 Requirements:
 
 Node.js and MongoDD
+
 
 Installation:
 
@@ -16,6 +18,7 @@ Install the application: 'npm install'
 Start the server: 'node server.js' or 'gulp start' (If you have gulp installed)
 
 View in browser at http://localhost:3000
+
 
 Features:
 
