@@ -3,11 +3,11 @@ A CRUD app that demstrates RESTful API built on top of a MEAN software stack
 
 This is a MongoDB-Express.js-Angular.js, Node.js ToDo App with sub-items.
 
-Requirements
+Requirements:
 
 Node.js and MongoDb
 
-Installation
+Installation:
 
 Clone the repository: git clone git@github.com/qtlawrence/ToDoApp.git or download and unpack the .zip
 Install the application: npm install
