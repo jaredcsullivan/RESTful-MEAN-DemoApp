@@ -9,9 +9,12 @@ Node.js and MongoDb
 
 Installation:
 
-Clone the repository: git clone git@github.com/jaredcsullivan/RESTful-MEAN-TodoApp.git or download and unpack the .zip
-Install the application: npm install
-Start the server: node server.js or gulp start (If you have gulp installed)
+Clone the repository: 'git clone git@github.com/jaredcsullivan/RESTful-MEAN-TodoApp.git' or download and unpack the .zip
+
+Install the application: 'npm install'
+
+Start the server: 'node server.js' or 'gulp start' (If you have gulp installed)
+
 View in browser at http://localhost:3000
 
 Features:
