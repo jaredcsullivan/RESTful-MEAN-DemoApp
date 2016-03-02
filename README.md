@@ -5,7 +5,7 @@ This is a MongoDB-Express.js-Angular.js, Node.js ToDo App with sub-items.
 
 Requirements:
 
-Node.js and MongoDb
+Node.js and MongoDD
 
 Installation:
 
