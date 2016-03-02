@@ -1,7 +1,7 @@
 # RESTful-MEAN-TodoApp
 A CRUD app that demonstrates RESTful API built on top of a MEAN software stack
 
-This is a MongoDB-Express.js-Angular.js, Node.js ToDo App with sub-items.
+This is a MongoDB, Express.js, Angular.js, Node.js ToDo App with sub-items.
 
 
 Requirements:
