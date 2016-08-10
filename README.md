@@ -28,6 +28,8 @@ Features:
 
 -Mongoose models used to access MongoDB
 
--Responsive User Interface
+-Responsive User Interface with Bootstrap
+
+-Password reset via email
 
 Demo: http://www.jaredcsullivan.com/#/demo
