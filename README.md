@@ -17,7 +17,7 @@ Install the application: 'npm install'
 
 Start the server: 'node server.js' or 'gulp start' (If you have gulp installed)
 
-View in browser at http://localhost:3000
+View in browser at http://localhost:8080
 
 
 Features:
