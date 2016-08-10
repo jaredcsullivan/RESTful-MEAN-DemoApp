@@ -1,0 +1,57 @@
+<script type="text/ng-template" id="/main.html">
+
+    <uib-accordion ng-show="isLoggedIn()">
+        <uib-accordion-group ng-cloak ng-repeat="item in items" ng-click="getSubitems(item._id)" is-open="status.open">
+            <uib-accordion-heading ng-attr="{'important' : item.important == true}" >
+                <div ng-class="{'important' : item.important == true}">{{item.itemName}}
+                    <div ng-show="item.important" class="pull-right glyphicon glyphicon-warning-sign"></div>			     
+                </div>
+            </uib-accordion-heading>
+            <span ng-hide="true" editable-text="item.itemName" onaftersave="editItemName($data, item)" e-form="textBtnForm">
+                {{ item.itemName || 'empty' }}</span>
+
+            <ul class="list-style">
+                <li class="item-style panel" ng-cloak ng-repeat="subitem in subitems">
+
+
+                    <span editable-text="subitem.subitemName" e-ng-click="$event.stopPropagation()" onaftersave="editSubitemName($data, subitem)" 
+                          e-form="subitemBtnForm" ng-class="{'done' : subitem.done == true}" ng-click="makeDone(subitem);$event.stopPropagation()">{{ subitem.subitemName || 'empty' }}</span>
+
+                    <a ng-show="editAllBtn" ng-click="subitemBtnForm.$show();$event.stopPropagation()" class="glyphicon glyphicon-pencil"></a>
+
+                    <a ng-show="editAllBtn" type="btn" class="glyphicon glyphicon-trash trash-icon pull-right" ng-click="deleteSubitem(subitem._id)"></a>
+                </li>
+
+
+                <li class="input-group addInput">
+
+                    <input type="text" class="form-control input-lg" placeholder="Add an subitem to this item" ng-model="subitemData.subitemName" 
+                           aria-describedby="basic-addon2">
+
+                    <span type="submit" class="input-group-addon addButton" ng-click="addSubitem(item._id)">Add</span>
+                </li>
+            </ul>
+
+            <hr class="marginShrinker">
+
+            <a href="#" class="glyphicon glyphicon glyphicon-cog btn btn-primary pull-right" ng-click="editAllBtn = !editAllBtn"></a>
+            <div ng-show="editAllBtn">
+                <button type="button" class="btn btn-danger" ng-click="deleteItem(item)">Delete</button>
+                <button type="button" ng-click="textBtnForm.$show()" class="btn btn-primary">Edit</button>
+                <button type="button" ng-click="makeImportant(item)" class="btn btn-warning">Important!</button>
+            </div>
+        </uib-accordion-group>
+    </uib-accordion>
+
+    <div class="row col-xs-12 addGroup">
+
+        <div class="input-group addInput">
+
+            <input type="text" class="form-control input-lg" placeholder="Add some item" ng-model="itemName" 
+                   aria-describedby="basic-addon2">
+
+            <span type="submit" class="input-group-addon addButton" id="basic-addon2" ng-click="addItem()">Add</span>
+        </div>
+    </div>
+    <br><br>
+</script>

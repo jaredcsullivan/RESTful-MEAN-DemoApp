@@ -1,0 +1,10 @@
+<div class="dropup pull-left dropupButton" ng-controller="NavCtrl" ng-show="isLoggedIn()">
+    
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="glyphicon glyphicon glyphicon-cog" ></span>
+    </button>             
+    
+     <ul class="dropdown-menu">
+        <li class="dropdown-item"><a type="button" class="btn btn-secondary" ng-click="logOut()">Log Out</a></li>
+     </ul>
+</div>

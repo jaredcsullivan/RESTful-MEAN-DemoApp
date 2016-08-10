@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Francois+One|Righteous' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    
+	<link rel="stylesheet" href="/stylesheets/xeditable.css"/>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+	<title><%= title %></title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    <script src="/javascripts/jquery-1.12.4.min.js"></script>
+      
+	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.0.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="/javascripts/xeditable.min.js"></script>
+	<script src="/javascripts/angularApp.js"></script>
+       
+  </head>
+  <body ng-app="angularApp">
+	    
+	<div class="container">
+	<div class="jumbotron text-center">
+		<h1 class="appJumbotron">Demo App</h1> 
+	</div>
+	  
+    <ui-view></ui-view>
+	
+	  
+     <%- include('console.ejs') %>
+	 <%- include('nav.ejs') %>
+    
+	  </div>
+	  <script type="text/ng-template" id="/home.html">
+        <center><h2>Welcome to Jared's Demo App!</h2>
+        <h4>Create, Read, Update, and Delete Items and Subitems</h4>
+		<h4>Powered by the M.E.A.N. Software Stack</h4>
+        <br><br>
+		<h4>Please login or register to manage your unique list of items and subitems</h4></center>
+        <div class="text-center">
+          <a href="/#/login"><button type="button" class="btn btn-primary btn-xlarge">Log In</button></a>
+            <br><br><br>
+          <a href="/#/register"><button type="button" class="btn btn-primary btn-xlarge">Register</button></a>
+        </div>
+    </script>
+    
+<script type="text/ng-template" id="/register.html">
+  <div class="settings-forms">
+
+  <div ng-show="error" class="alert alert-danger row">
+    <span>{{ error.message }}</span>
+  </div>
+
+ <form ng-submit="register()"
+    style="margin-top:30px;">
+    <h2>Register</h2>
+
+    <div class="form-group">
+      <input type="email"
+      class="form-control input-lg"
+      placeholder="Email"
+      autocapitalize="none"
+      ng-model="user.username"/>
+    </div>
+    <div class="form-group">
+      <input type="password"
+      class="form-control input-lg"
+      placeholder="Password"
+      ng-model="user.password"/>
+    </div>
+    <div class="form-group">
+      <input type="password"
+      class="form-control input-lg"
+      placeholder="Confirm Password"
+      ng-model="user.password2"/>
+     </div>
+    <center><button type="submit" class="btn btn-primary btn-lg" href="/#/main">Register</button></center>
+   </form>
+  </div>
+  <div class="pull-right">
+	  <a href="/#/login" ><p>Login</p></a>
+  </div>
+</script>
+    
+<script type="text/ng-template" id="/login.html">
+  <div class="settings-forms">
+
+  <div ng-show="error" class="alert alert-danger row">
+    <span>{{ error.message }}</span>
+  </div>
+  <div ng-show="success" class="alert alert-success row">
+    <span>{{ success.message }}</span>
+  </div>
+      
+  <div class="login-form">
+  <form ng-submit="logIn()"
+    style="margin-top:30px;">
+    <h2 ng-hide="forgotForm">Login</h2>
+    <h3 ng-show="forgotForm">Reset Password</h3>
+    <div ng-hide="forgotForm" class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+
+      <input type="text"
+      class="form-control input-lg"
+      autocapitalize="none"
+      placeholder="Email"
+      ng-model="user.username"/>
+    </div>
+    </div>
+    <div ng-hide="forgotForm" class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>  
+          <input type="password"
+          class="form-control input-lg"
+          placeholder="Password"
+          ng-model="user.password"/>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <button type="submit" ng-hide="forgotForm" class="btn btn-primary btn-lg">Login</button>
+      </div>
+  </form>
+ </div>
+</div>
+
+ <div ng-show="forgotForm" class="form-group">
+      <div ng-show="forgotForm">
+		 <p>Please check your email to reset your password:</p>
+		 <form ng-submit="forgot()"
+		   style="margin-top:10px;">
+			<div class="form-group">
+			<input type="email"
+			class="form-control"
+			placeholder="Email"
+			ng-model="user.username"/>
+			</div>
+			<button type="submit" class="btn btn-primary">Send</button>
+		</form>
+	 </div>
+ </div>
+ <div class="pull-right">
+	<a href="" ng-click="forgotForm=!forgotForm"><p ng-hide="forgotForm">Forgot Password?</p><p ng-show="forgotForm">Log In</p></a>
+	<a href="/#/register" ><p>Sign Up</p></a>
+ </div>
+</script>
+	  
+</body>
+</html>
